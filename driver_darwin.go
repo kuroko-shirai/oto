@@ -158,7 +158,8 @@ func newContext(sampleRate int, channelCount int, format mux.Format, bufferSizeI
 		}
 
 		close(ready)
-		ready = nil
+		// ready = nil
+		<-ready
 
 		c.loop()
 	}()
